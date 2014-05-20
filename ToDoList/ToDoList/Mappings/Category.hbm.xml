@@ -4,7 +4,7 @@
                    namespace="ToDoList">
   <class name="Category" table="Categories">
     <id name="CategoryId" type="int">
-      <generator class="identity"></generator>
+      <generator class="identity"/>
     </id>
     <property name="CategoryString"/>
   </class>

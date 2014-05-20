@@ -14,7 +14,8 @@ namespace ToDoList.Repository
 
         public ToDoRepository()
         {
-            _configuration=new Configuration();
+            _configuration = new Configuration();
+            _configuration.Configure();
             _configuration.AddAssembly("ToDoList");
             _factory = _configuration.BuildSessionFactory();
         }
