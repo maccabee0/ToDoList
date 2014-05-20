@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ToDoList"
+                   namespace="ToDoList">
+  <class name="Item" table="Items">
+    <id name="ItemId" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="Task"/>
+    <property name="AddDate"/>
+    <property name="EndDate"/>
+    <property name="CategoryId"/>
+  </class>
+</hibernate-mapping>
