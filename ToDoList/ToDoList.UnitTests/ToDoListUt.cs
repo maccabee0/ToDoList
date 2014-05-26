@@ -1,18 +1,23 @@
 ﻿using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ToDoList.UnitTests
 {
     [TestFixture]
     public class ToDoListUt
     {
+
         [Test]
         public void TestConnection()
         {
-            
+            var config = new NHibernate.Cfg.Configuration();
+            Assert.IsNotNull(config);
+        }
+
+        [Test]
+        public void TestRepo()
+        {
+            var repo = new Repository.ToDoRepository();
+            Assert.IsNotNull(repo);
         }
     }
 }

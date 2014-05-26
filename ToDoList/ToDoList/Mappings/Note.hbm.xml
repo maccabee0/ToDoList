@@ -4,7 +4,7 @@
                    namespace="ToDoList">
   <class name="Note" table="Notes">
     <id name="NoteId" type="int">
-      <generator class="identity"></generator>
+      <generator class="identity"/>
     </id>
     <property name="Text"/>
     <property name="ItemId"/>
