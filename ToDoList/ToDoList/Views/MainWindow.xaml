@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid DataContext="{StaticResource ItemListViewModel}">
-        <!--<Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">Item</Label>
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0" Width="400" DataContext="{Binding Item.Task}"/>-->
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0">Category</Label>
         <ComboBox Margin="80,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200"/>
         
