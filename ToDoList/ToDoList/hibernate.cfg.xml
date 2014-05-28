@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
   <session-factory>
-    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
-    <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
-    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
-    <property name="connection.connection_string">Data Source=(local)\SQLEXPRESS;Initial Catalog=ToDoDb;Integrated Security=True</property>
-    <property name="show_sql">true</property>
+    <add name="connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
+    <add name="dialect" value="NHibernate.Dialect.MsSql2008Dialect"/>
+    <add name="connection.driver_class" value="NHibernate.Driver.SqlClientDriver"/>
+    <add name="connection.connection_string" value="Data Source=(local)\sqlexpress; Initial Catalog=ToDoDb;Trusted_Connection=true;"/>
+    <add name="connection.connection_string" value="ToDoConnectionString"/>
+    <add name="show_sql" value="true"/>
+    <mapping assembly="ToDoList.Mappings"/>
     <!--<mapping resource="Mappings\Category.hbm.xml"/>
     <mapping resource="Mappings\Item.hbm.xml"/>
-    <mapping resource="Note.hbm.xml"/>-->
+    <mapping resource="Mappings\Note.hbm.xml"/>-->
   </session-factory>
 </hibernate-configuration>

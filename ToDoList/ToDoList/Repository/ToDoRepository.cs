@@ -5,8 +5,10 @@ using System.Linq;
 
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
 
 using ToDoList.Abstract;
+using ToDoList.Helper;
 using ToDoList.Models;
 
 namespace ToDoList.Repository
@@ -18,19 +20,7 @@ namespace ToDoList.Repository
 
         public ToDoRepository()
         {
-<<<<<<< HEAD
-            _configuration = new Configuration();
-            _configuration.Configure();
-            _configuration.AddAssembly("ToDoList");
-            _factory = _configuration.BuildSessionFactory();
-=======
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app.config");
-            var configuration = new Configuration();
-            configuration.Configure();//path);
-            configuration.AddAssembly(typeof(Item).Assembly);
-            _factory = configuration.BuildSessionFactory();
-
->>>>>>> efffa3557decef5099bda0e870f707bd50fd6165
+            _factory = NHibernateHelper.CreateSessionFactory();
         }
 
         public IEnumerable<Item> GetItems()
@@ -134,6 +124,14 @@ namespace ToDoList.Repository
         private ISession OpenSession()
         {
             return _factory.OpenSession();
+        }
+
+        private static void LoadHibernateCfg()
+        {
+            var cfg = new Configuration();
+            cfg.Configure(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"app.config"));
+            cfg.AddAssembly(typeof (Item).Assembly);
+            new SchemaExport(cfg).Execute(true,true,false);
         }
     }
 }
