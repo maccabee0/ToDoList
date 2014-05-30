@@ -42,7 +42,7 @@ namespace ToDoList.Repository
             return GetItems().FirstOrDefault(i => i.ItemId == id);
         }
 
-        public void SaveItem(Item item)
+        public Item SaveItem(Item item)
         {
             using (var session = OpenSession())
             {
@@ -52,6 +52,7 @@ namespace ToDoList.Repository
                     transaction.Commit();
                 }
             }
+            return item;
         }
 
         public void DeleteItem(Item item)
@@ -79,7 +80,7 @@ namespace ToDoList.Repository
             return GetCategories().FirstOrDefault(c => c.CategoryId == id);
         }
 
-        public void SaveCategory(Category category)
+        public Category SaveCategory(Category category)
         {
             using (var session = OpenSession())
             {
@@ -89,6 +90,7 @@ namespace ToDoList.Repository
                     transaction.Commit();
                 }
             }
+            return category;
         }
 
         public IEnumerable<Note> GetNotes()
@@ -110,7 +112,7 @@ namespace ToDoList.Repository
             return GetNotes().FirstOrDefault(n => n.NoteId == id);
         }
 
-        public void SaveNote(Note note)
+        public Note SaveNote(Note note)
         {
             using (var session = OpenSession())
             {
@@ -120,6 +122,7 @@ namespace ToDoList.Repository
                     transaction.Commit();
                 }
             }
+            return note;
         }
 
         private ISession OpenSession()
