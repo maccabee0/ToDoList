@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 
 using ToDoList.Models;
 
@@ -14,6 +8,7 @@ namespace ToDoList.Mappings
     {
         public ItemMap()
         {
+            Table("Items");
             Id(item => item.ItemId);
             Map(item => item.Complete);
             Map(item => item.Task);

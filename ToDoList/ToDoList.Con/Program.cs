@@ -1,6 +1,5 @@
 ﻿using System;
 
-using ToDoList.Helper;
 using ToDoList.Repository;
 
 namespace ToDoList.Con
@@ -11,6 +10,10 @@ namespace ToDoList.Con
         {
             var repo = new ToDoRepository();
             var items = repo.GetItems();
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.ItemId + " / " + item.Task + " / " + item.Category.CategoryString);
+            }
 
             Console.ReadKey();
         }

@@ -21,8 +21,8 @@ namespace ToDoList.ViewModels
         public ItemListViewModel()
         {
             _repository = new ToDoRepository();
-            Item = new Item();
             Items = new ObservableCollection<Item>(_repository.GetItems());
+            Item = new Item();
             Categories = _repository.GetCategories().ToList();
         }
 

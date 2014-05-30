@@ -2,6 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 
 using NHibernate;
+using NHibernate.Cfg;
 
 using ToDoList.Mappings;
 
@@ -11,12 +12,18 @@ namespace ToDoList.Helper
     {
         public static ISessionFactory CreateSessionFactory()
         {
-            return Fluently.Configure()
+            var factory = Fluently.Configure()
                            .Database(MsSqlConfiguration
                                          .MsSql2008.ConnectionString(
-                                             c => c.FromAppSetting("ToDoConnectionString")).ShowSql)
+                                             c => c.FromConnectionStringWithKey("ToDoConnectionString")).ShowSql)
                                              .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ItemMap>())
                            .BuildSessionFactory();
+            return factory;
+        }
+
+        public static void BuildSchema(Configuration config)
+        {
+            
         }
     }
 }

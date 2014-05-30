@@ -8,6 +8,7 @@ namespace ToDoList.Mappings
     {
         public NoteMap()
         {
+            Table("Notes");
             Id(x => x.NoteId);
             Map(x => x.Text);
             Map(x => x.ItemId);

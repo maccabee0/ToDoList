@@ -27,7 +27,8 @@ namespace ToDoList.Repository
         {
             using (var session = OpenSession())
             {
-                return session.CreateQuery("select * from Items").Enumerable<Item>();
+                //var s = session.Get<Item>();//CreateSQLQuery("select * from Items").List<Item>();
+                return session.CreateQuery("from Item").List<Item>();
             }
         }
 
@@ -69,7 +70,7 @@ namespace ToDoList.Repository
         {
             using (var session = OpenSession())
             {
-                return session.CreateQuery("Select * from Categories").Enumerable<Category>();
+                return session.CreateQuery("from Category").List<Category>();
             }
         }
 
@@ -95,7 +96,7 @@ namespace ToDoList.Repository
             using (var session = OpenSession())
             {
                 var result = session.QueryOver<Note>();
-                return session.CreateQuery("select * from Notes").Enumerable<Note>();
+                return session.CreateQuery("from Note").List<Note>();
             }
         }
 

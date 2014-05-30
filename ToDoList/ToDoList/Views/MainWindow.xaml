@@ -4,10 +4,19 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid DataContext="{StaticResource ItemListViewModel}">
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0">Category</Label>
-        <ComboBox Margin="80,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200"/>
+        <ComboBox Margin="80,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200"
+                  ItemsSource="{Binding Categories}"
+                  DisplayMemberPath="CategoryString"
+                  SelectedValuePath="CategoryId"
+                  SelectedValue="{Binding CategoryId,Mode=TwoWay}"/>
         
-        <DataGrid Margin="10,100,10,10">
-            
+        <DataGrid Margin="10,100,10,10" ItemsSource="{Binding Items}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Category" Width="75" Binding="{Binding Category.CategoryString}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Task" Width="200" Binding="{Binding Task}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Complete" Binding="{Binding Complete, Mode=TwoWay}"></DataGridCheckBoxColumn>
+                <!--<DataGridTextColumn Binding="{Binding }"></DataGridTextColumn>-->
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>

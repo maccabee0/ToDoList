@@ -8,6 +8,7 @@ namespace ToDoList.Mappings
     {
         public CategoryMap()
         {
+            Table("Categories");
             Id(x => x.CategoryId);
             Map(x => x.CategoryString);
             HasMany(x => x.Items)
